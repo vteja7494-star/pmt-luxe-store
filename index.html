@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMT LUXE — Premium Fashion</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#080808;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+button{
+  font-family:inherit;
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  z-index:1000;
+  background:rgba(0,0,0,.35);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo{
+  font-family:Georgia,serif;
+  font-size:30px;
+  letter-spacing:8px;
+}
+
+.nav-links{
+  display:flex;
+  gap:35px;
+  font-size:12px;
+  letter-spacing:3px;
+}
+
+.nav-links a{
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#d6aa58;
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.icon-btn{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:20px;
+  position:relative;
+}
+
+.cart-count{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+  width:18px;
+  height:18px;
+  background:#d6aa58;
+  color:#000;
+  border-radius:50%;
+  font-size:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  padding:0 7% 90px;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.12)),
+  linear-gradient(0deg,rgba(0,0,0,.8),transparent 55%),
+  url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2000&q=90")
+  center/cover;
+}
+
+.hero-content{
+  max-width:650px;
+  animation:fadeUp 1.2s ease;
+}
+
+.eyebrow{
+  font-size:11px;
+  letter-spacing:5px;
+  color:#d6aa58;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:clamp(55px,8vw,105px);
+  line-height:.9;
+  font-weight:400;
+  margin-bottom:25px;
+}
+
+.hero p{
+  max-width:520px;
+  color:#ccc;
+  line-height:1.8;
+  margin-bottom:30px;
+}
+
+.gold-btn{
+  padding:16px 28px;
+  border:0;
+  background:#d6aa58;
+  color:#080808;
+  letter-spacing:3px;
+  font-size:11px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+.gold-btn:hover{
+  background:#f0cf8a;
+  transform:translateY(-2px);
+}
+
+/* SECTION */
+.section{
+  padding:110px 6%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:55px;
+}
+
+.section-title small{
+  color:#d6aa58;
+  letter-spacing:5px;
+  font-size:10px;
+}
+
+.section-title h2{
+  font-family:Georgia,serif;
+  font-size:52px;
+  font-weight:400;
+  margin-top:12px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.product-card{
+  background:#151515;
+  border:1px solid rgba(255,255,255,.07);
+  transition:.4s;
+  overflow:hidden;
+}
+
+.product-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(214,170,88,.45);
+}
+
+.product-image{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+  transition:.5s;
+}
+
+.product-card:hover .product-image{
+  transform:scale(1.04);
+}
+
+.product-info{
+  padding:20px;
+}
+
+.product-info h3{
+  font-family:Georgia,serif;
+  font-size:21px;
+  font-weight:400;
+  margin-bottom:8px;
+}
+
+.price{
+  color:#d6aa58;
+  margin-bottom:17px;
+}
+
+.outline-btn{
+  padding:11px 17px;
+  background:none;
+  color:#fff;
+  border:1px solid #555;
+  font-size:10px;
+  letter-spacing:2px;
+  transition:.3s;
+}
+
+.outline-btn:hover{
+  border-color:#d6aa58;
+  color:#d6aa58;
+}
+
+/* PHILOSOPHY */
+.philosophy{
+  background:#101010;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+
+.philosophy h2{
+  font-family:Georgia,serif;
+  font-size:60px;
+  font-weight:400;
+  line-height:1;
+}
+
+.philosophy p{
+  color:#aaa;
+  line-height:1.9;
+  margin-top:25px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.feature{
+  border-top:1px solid #333;
+  padding-top:20px;
+}
+
+.feature strong{
+  color:#d6aa58;
+  display:block;
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+footer{
+  padding:70px 6%;
+  text-align:center;
+  border-top:1px solid #222;
+}
+
+.footer-logo{
+  font-family:Georgia,serif;
+  font-size:32px;
+  letter-spacing:8px;
+}
+
+footer p{
+  color:#666;
+  margin-top:20px;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+/* MODAL */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(12px);
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.overlay.active{
+  display:flex;
+}
+
+.modal{
+  width:min(900px,100%);
+  background:#111;
+  border:1px solid #333;
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  animation:modalIn .4s ease;
+}
+
+.close{
+  position:absolute;
+  right:18px;
+  top:15px;
+  z-index:5;
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:25px;
+}
+
+.modal-image{
+  width:100%;
+  height:100%;
+  min-height:520px;
+  object-fit:cover;
+}
+
+.modal-content{
+  padding:50px 38px;
+}
+
+.modal-content small{
+  color:#d6aa58;
+  letter-spacing:4px;
+}
+
+.modal-content h2{
+  font-family:Georgia,serif;
+  font-size:45px;
+  font-weight:400;
+  margin:15px 0;
+}
+
+.modal-content p{
+  color:#aaa;
+  line-height:1.7;
+  margin:20px 0;
+}
+
+.sizes{
+  display:flex;
+  gap:8px;
+  margin:25px 0;
+}
+
+.size{
+  width:45px;
+  height:40px;
+  background:none;
+  border:1px solid #444;
+  color:#fff;
+}
+
+.size.selected{
+  background:#fff;
+  color:#000;
+}
+
+.full-btn{
+  width:100%;
+}
+
+/* LOGIN */
+.login-box{
+  width:min(450px,100%);
+  background:rgba(15,15,15,.95);
+  border:1px solid #444;
+  padding:45px 35px;
+  position:relative;
+  animation:loginIn .6s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 0 80px rgba(214,170,88,.08);
+}
+
+.login-box::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border:1px solid transparent;
+  background:linear-gradient(120deg,#d6aa58,transparent,#d6aa58) border-box;
+  -webkit-mask:
+  linear-gradient(#fff 0 0) padding-box,
+  linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+  opacity:.5;
+}
+
+.login-logo{
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:30px;
+  letter-spacing:7px;
+}
+
+.login-sub{
+  text-align:center;
+  color:#777;
+  font-size:9px;
+  letter-spacing:4px;
+  margin-top:8px;
+}
+
+.login-box h2{
+  text-align:center;
+  font-family:Georgia,serif;
+  font-size:42px;
+  font-weight:400;
+  margin:30px 0 8px;
+}
+
+.login-box > p{
+  text-align:center;
+  color:#888;
+  font-size:13px;
+  margin-bottom:30px;
+}
+
+.input-group{
+  margin-bottom:18px;
+}
+
+.input-group label{
+  display:block;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#aaa;
+  margin-bottom:8px;
+}
+
+.input-group input{
+  width:100%;
+  padding:15px;
+  background:#0b0b0b;
+  border:1px solid #333;
+  color:#fff;
+  outline:none;
+}
+
+.input-group input:focus{
+  border-color:#d6aa58;
+}
+
+.login-options{
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:20px;
+}
+
+.login-options button{
+  background:none;
+  border:0;
+  color:#d6aa58;
+  font-size:11px;
+}
+
+.login-btn{
+  width:100%;
+  padding:16px;
+  background:#d6aa58;
+  border:0;
+  font-weight:bold;
+  letter-spacing:3px;
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:25px 0;
+  color:#555;
+  font-size:11px;
+}
+
+.divider::before,
+.divider::after{
+  content:"";
+  height:1px;
+  background:#333;
+  flex:1;
+}
+
+.google-btn{
+  width:100%;
+  padding:14px;
+  background:#111;
+  border:1px solid #444;
+  color:#fff;
+}
+
+.signup{
+  text-align:center;
+  color:#777;
+  font-size:12px;
+  margin-top:25px;
+}
+
+.signup span{
+  color:#d6aa58;
+}
+
+/* CART */
+.cart-box{
+  width:min(500px,100%);
+  background:#111;
+  border:1px solid #333;
+  padding:35px;
+  max-height:80vh;
+  overflow:auto;
+}
+
+.cart-box h2{
+  font-family:Georgia,serif;
+  font-size:35px;
+  font-weight:400;
+  margin-bottom:25px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 0;
+  border-bottom:1px solid #292929;
+}
+
+.empty{
+  color:#777;
+  text-align:center;
+  padding:30px 0;
+}
+
+.total{
+  display:flex;
+  justify-content:space-between;
+  padding:25px 0;
+  color:#d6aa58;
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  bottom:25px;
+  left:50%;
+  transform:translate(-50%,100px);
+  background:#fff;
+  color:#111;
+  padding:14px 22px;
+  z-index:3000;
+  transition:.4s;
+  font-size:13px;
+}
+
+.toast.show{
+  transform:translate(-50%,0);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:scale(.94) translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+@keyframes loginIn{
+  from{
+    opacity:0;
+    transform:translateY(40px) scale(.96);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .nav-links{
+    display:none;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .philosophy{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .navbar{
+    height:65px;
+    padding:0 5%;
+  }
+
+  .logo{
+    font-size:22px;
+    letter-spacing:5px;
+  }
+
+  .hero{
+    min-height:100vh;
+    padding:0 6% 65px;
+  }
+
+  .hero h1{
+    font-size:58px;
+  }
+
+  .section{
+    padding:75px 5%;
+  }
+
+  .section-title h2{
+    font-size:42px;
+  }
+
+  .products{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .product-image{
+    height:250px;
+  }
+
+  .product-info{
+    padding:13px;
+  }
+
+  .product-info h3{
+    font-size:17px;
+  }
+
+  .modal{
+    grid-template-columns:1fr;
+    max-height:90vh;
+    overflow:auto;
+  }
+
+  .modal-image{
+    min-height:300px;
+    height:300px;
+  }
+
+  .modal-content{
+    padding:30px 25px;
+  }
+
+  .modal-content h2{
+    font-size:35px;
+  }
+
+  .philosophy h2{
+    font-size:45px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .login-box{
+    padding:35px 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="#home" class="logo">PMT</a>
+
+  <nav class="nav-links">
+    <a href="#home">HOME</a>
+    <a href="#collection">COLLECTION</a>
+    <a href="#about">ABOUT</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="icon-btn" onclick="openLogin()" aria-label="Login">♙</button>
+
+    <button class="icon-btn" onclick="openCart()" aria-label="Cart">
+      ♧
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">PMT / NEW COLLECTION 2026</div>
+
+    <h1>Quiet<br>Luxury.</h1>
+
+    <p>
+      Timeless silhouettes. Premium details.
+      Designed for those who prefer elegance without the noise.
+    </p>
+
+    <a href="#collection" class="gold-btn">
+      EXPLORE COLLECTION
+    </a>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section class="section" id="collection">
+
+  <div class="section-title">
+    <small>PMT / CURATED EDIT</small>
+    <h2>The Collection</h2>
+  </div>
+
+  <div class="products">
+
+    <article class="product-card">
+      <img class="product-image"
+      src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
+      alt="Midnight Elegance">
+
+      <div class="product-info">
+        <h3>Midnight Elegance</h3>
+        <div class="price">₹4,999</div>
+
+        <button class="outline-btn"
+        onclick="openProduct(
+        'Midnight Elegance',
+        '₹4,999',
+        'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85'
+        )">
+        VIEW DETAILS
+        </button>
+      </div>
+    </article>
+
+
+    <article class="product-card">
+      <img class="product-image"
+      src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85"
+      alt="Silk Noir">
+
+      <div class="product-info">
+        <h3>Silk Noir</h3>
+        <div class="price">₹5,499</div>
+
+        <button class="outline-btn"
+        onclick="openProduct(
+        'Silk Noir',
+        '₹5,499',
+        'https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=900&q=85'
+        )">
+        VIEW DETAILS
+        </button>
+      </div>
+    </article>
+
+
+    <article class="product-card">
+      <img class="product-image"
+      src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85"
+      alt="Urban Muse">
+
+      <div class="product-info">
+        <h3>Urban Muse</h3>
+        <div class="price">₹3,999</div>
+
+        <button class="outline-btn"
+        onclick="openProduct(
+        'Urban Muse',
+        '₹3,999',
+        'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85'
+        )">
+        VIEW DETAILS
+        </button>
+      </div>
+    </article>
+
+
+    <article class="product-card">
+      <img class="product-image"
+      src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=900&q=85"
+      alt="Golden Hour">
+
+      <div class="product-info">
+        <h3>Golden Hour</h3>
+        <div class="price">₹6,499</div>
+
+        <button class="outline-btn"
+        onclick="openProduct(
+        'Golden Hour',
+        '₹6,499',
+        'https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=900&q=85'
+        )">
+        VIEW DETAILS
+        </button>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section philosophy" id="about">
+
+  <div>
+    <div class="eyebrow">THE PMT PHILOSOPHY</div>
+
+    <h2>
+      Less noise.<br>
+      More style.
+    </h2>
+
+    <p>
+      PMT LUXE is built around modern luxury,
+      clean silhouettes and timeless fashion.
+      Every piece is selected to feel sophisticated
+      today and relevant tomorrow.
+    </p>
+  </div>
+
+  <div class="features">
+
+    <div class="feature">
+      <strong>01 / PREMIUM</strong>
+      <span>Luxury-focused materials and refined finishing.</span>
+    </div>
+
+    <div class="feature">
+      <strong>02 / EXCLUSIVE</strong>
+      <span>Curated designs created for a distinctive look.</span>
+    </div>
+
+    <div class="feature">
+      <strong>03 / TRUSTED</strong>
+      <span>A simple and premium shopping experience.</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PMT</div>
+  <p>© 2026 PMT LUXE. ALL RIGHTS RESERVED.</p>
+</footer>
+
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="productOverlay">
+
+  <div class="modal">
+
+    <button class="close" onclick="closeProduct()">×</button>
+
+    <img id="modalImage" class="modal-image" src="" alt="Product">
+
+    <div class="modal-content">
+
+      <small>PMT / EXCLUSIVE</small>
+
+      <h2 id="modalName">Product</h2>
+
+      <div class="price" id="modalPrice">₹0</div>
+
+      <p>
+        Premium fashion designed with an elegant
+        silhouette and luxurious finish.
+      </p>
+
+      <div class="sizes">
+        <button class="size">S</button>
+        <button class="size selected">M</button>
+        <button class="size">L</button>
+        <button class="size">XL</button>
+      </div>
+
+      <button class="gold-btn full-btn" onclick="addToCart()">
+        ADD TO BAG
+      </button>
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- LOGIN MODAL -->
+<div class="overlay" id="loginOverlay">
+
+  <div class="login-box">
+
+    <button class="close" onclick="closeLogin()">×</button>
+
+    <div class="login-logo">PMT</div>
+    <div class="login-sub">LUXE FASHION</div>
+
+    <h2>Login</h2>
+
+    <p>Sign in to continue to PMT LUXE</p>
+
+    <div class="input-group">
+      <label>EMAIL OR PHONE</label>
+      <input id="email" type="text" placeholder="Enter your email">
+    </div>
+
+    <div class="input-group">
+      <label>PASSWORD</label>
+      <input id="password" type="password" placeholder="Enter your password">
+    </div>
+
+    <div class="login-options">
+      <button onclick="forgotPassword()">Forgot Password?</button>
+    </div>
+
+    <button class="login-btn" onclick="loginUser()">
+      ENTER PMT LUXE
+    </button>
+
+    <div class="divider">OR</div>
+
+    <button class="google-btn" onclick="googleLogin()">
+      Continue with Google
+    </button>
+
+    <div class="signup">
+      Don't have an account?
+      <span>Sign Up</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- CART MODAL -->
+<div class="overlay" id="cartOverlay">
+
+  <div class="cart-box">
+
+    <button class="close" onclick="closeCart()">×</button>
+
+    <h2>My Bag</h2>
+
+    <div id="cartItems">
+      <div class="empty">Your bag is empty.</div>
+    </div>
+
+    <div class="total">
+      <span>TOTAL</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+
+    <button class="gold-btn full-btn" onclick="checkout()">
+      CHECKOUT
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+let selectedProduct = null;
+
+let cart = [];
+
+
+/* PRODUCT */
+function openProduct(name,price,image){
+
+  selectedProduct = {
+    name:name,
+    price:price,
+    image:image
+  };
+
+  document.getElementById("modalName").textContent = name;
+  document.getElementById("modalPrice").textContent = price;
+  document.getElementById("modalImage").src = image;
+
+  document.getElementById("productOverlay")
+  .classList.add("active");
+}
+
+
+function closeProduct(){
+
+  document.getElementById("productOverlay")
+  .classList.remove("active");
+}
+
+
+/* CART */
+function addToCart(){
+
+  if(!selectedProduct) return;
+
+  cart.push(selectedProduct);
+
+  updateCart();
+
+  closeProduct();
+
+  showToast("Added to your PMT bag ✦");
+}
+
+
+function updateCart(){
+
+  document.getElementById("cartCount")
+  .textContent = cart.length;
+
+  const container =
+  document.getElementById("cartItems");
+
+  if(cart.length === 0){
+
+    container.innerHTML =
+    '<div class="empty">Your bag is empty.</div>';
+
+    document.getElementById("cartTotal")
+    .textContent = "₹0";
+
+    return;
+  }
+
+  let total = 0;
+
+  container.innerHTML = cart.map((item,index)=>{
+
+    let numeric =
+    parseInt(item.price.replace(/[^\d]/g,""));
+
+    total += numeric;
+
+    return `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <strong>${item.price}</strong>
+      </div>
+    `;
+
+  }).join("");
+
+  document.getElementById("cartTotal")
+  .textContent =
+  "₹" + total.toLocaleString("en-IN");
+}
+
+
+function openCart(){
+
+  document.getElementById("cartOverlay")
+  .classList.add("active");
+}
+
+
+function closeCart(){
+
+  document.getElementById("cartOverlay")
+  .classList.remove("active");
+}
+
+
+function checkout(){
+
+  if(cart.length === 0){
+
+    showToast("Your bag is empty.");
+
+    return;
+  }
+
+  closeCart();
+
+  openLogin();
+
+  showToast("Please login to continue checkout.");
+}
+
+
+/* LOGIN */
+function openLogin(){
+
+  document.getElementById("loginOverlay")
+  .classList.add("active");
+}
+
+
+function closeLogin(){
+
+  document.getElementById("loginOverlay")
+  .classList.remove("active");
+}
+
+
+function loginUser(){
+
+  const email =
+  document.getElementById("email").value.trim();
+
+  const password =
+  document.getElementById("password").value.trim();
+
+  if(!email || !password){
+
+    showToast("Please enter email and password.");
+
+    return;
+  }
+
+  closeLogin();
+
+  setTimeout(()=>{
+
+    alert("Welcome to PMT LUXE ✦");
+
+  },300);
+}
+
+
+function googleLogin(){
+
+  showToast("Google login will be connected next.");
+}
+
+
+function forgotPassword(){
+
+  showToast("Password recovery will be connected next.");
+}
+
+
+/* TOAST */
+function showToast(message){
+
+  const toast =
+  document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+
+    toast.classList.remove("show");
+
+  },2500);
+}
+
+
+/* SIZE BUTTONS */
+document.querySelectorAll(".size")
+.forEach(button=>{
+
+  button.addEventListener("click",()=>{
+
+    document.querySelectorAll(".size")
+    .forEach(btn =>
+      btn.classList.remove("selected")
+    );
+
+    button.classList.add("selected");
+
+  });
+
+});
+
+
+/* CLOSE OVERLAY ON BACKGROUND */
+document.querySelectorAll(".overlay")
+.forEach(overlay=
