@@ -650,3 +650,75 @@ document.addEventListener("DOMContentLoaded", () => {
     updateBagCount();
 
 });
+// ===============================
+// CHECKOUT SYSTEM
+// ===============================
+
+const checkoutBtn = document.getElementById("checkoutBtn");
+const checkoutModal = document.getElementById("checkoutModal");
+const closeCheckout = document.getElementById("closeCheckout");
+const checkoutForm = document.getElementById("checkoutForm");
+const checkoutTotal = document.getElementById("checkoutTotal");
+
+checkoutBtn.addEventListener("click", function () {
+
+    if (cart.length === 0) {
+        alert("Your bag is empty.");
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach(function (item) {
+        total += Number(item.price);
+    });
+
+    checkoutTotal.textContent =
+        "₹" + total.toLocaleString("en-IN");
+
+    checkoutModal.classList.add("active");
+});
+
+
+closeCheckout.addEventListener("click", function () {
+    checkoutModal.classList.remove("active");
+});
+
+
+checkoutModal.addEventListener("click", function (event) {
+
+    if (event.target === checkoutModal) {
+        checkoutModal.classList.remove("active");
+    }
+
+});
+
+
+checkoutForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("customerName").value;
+    const phone = document.getElementById("customerPhone").value;
+    const address = document.getElementById("customerAddress").value;
+    const city = document.getElementById("customerCity").value;
+    const pincode = document.getElementById("customerPincode").value;
+    const payment = document.getElementById("paymentMethod").value;
+
+    const orderId =
+        "PMT" + Date.now().toString().slice(-6);
+
+    alert(
+        "Order Placed Successfully! 🎉\n\n" +
+        "Order ID: " + orderId + "\n" +
+        "Name: " + name + "\n" +
+        "Phone: " + phone + "\n" +
+        "City: " + city + "\n" +
+        "Payment: " + payment
+    );
+
+    checkoutModal.classList.remove("active");
+
+    checkoutForm.reset();
+
+});
